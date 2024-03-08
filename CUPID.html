@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" cntent="width=device-width, initial-scale=1">
+    <title>Heart Catching Cupid</title>
+    <link rel="stylesheet" href="CATCHING.css">
+  </head>
+
+  <body>
+
+    <div class="main">
+      <audio id="myAudio1" src="sounds/touch.mp3" ></audio>
+      <img class="heart" src="images/heart.png" id="heart" alt="">
+      <img class="heart" src="images/heart.png" id="Mrbombasticsideeye" alt="">
+      <img class="heart" src="images/heart.png" id="heart3" alt="">
+      <img class="heart" src="images/heart.png" id="iamblink" alt="">
+      <img class="heart" src="images/heart.png" id="guchiguchiyaya" alt="">
+      <img class="heart" src="images/heart.png" id="slayyyyyyyy" alt="">
+      <img src="images/char(1).png" width="200px" class="yas-queennnn" id= "mrbadboi" alt="" srcset="">
+      <div id="score">0</div>
+    </div>
+
+    <script>
+      var score = 0
+      var touch_sound = document.getElementById("myAudio1");
+      touch_sound.load();
+
+      // Make the character follow move movements
+      function movecharactor(e){
+        var char = document.getElementById("mrbadboi");
+        char.style.left=e.x+"px";
+        char.style.top=e.y+"px";
+      }
+
+      document.onmousemove=movecharactor;
+
+      // Animate hearts
+      function drop_unicorn_poop(){
+        var char1= document.getElementById ("heart")
+        var char2= document.getElementById ("Mrbombasticsideeye")
+        var char3= document.getElementById ("heart3")
+        var char4= document.getElementById ("iamblink")
+        var char5= document.getElementById ("guchiguchiyaya")
+        var char6= document.getElementById ("slayyyyyyyy")
+        setTimeout(() => {
+          char1.classList.add("animate_da_hart");
+
+        }, 1000);
+        setTimeout(() => {
+          char2.classList.add("animate2")
+
+        }, 2500);
+        // char2.style.left = "100px"
+        setTimeout(() => {
+          char3.classList.add("animate_da_hart3")
+        }, 500);
+
+        setTimeout(() => {
+          char4.classList.add("animate_da_hart4")
+
+        }, 4000);
+        setTimeout(() => {
+          char5.classList.add("animate_da_hart5")
+
+        }, 3000);
+        setTimeout(() => {
+          char6.classList.add("animate_da_hart6")
+
+        }, 1700);
+      }
+
+      drop_unicorn_poop();
+
+
+    
+      function touch(){
+              var charr = document.getElementById ("mrbadboi");
+              var heart1= document.getElementById ("heart")
+              var heart2= document.getElementById ("Mrbombasticsideeye")
+              var heart3= document.getElementById ("heart3")
+              var heart4= document.getElementById ("iamblink")
+              var heart5= document.getElementById ("guchiguchiyaya")
+              var heart6= document.getElementById ("slayyyyyyyy")
+              var score_div = document.getElementById("score");
+
+              
+              // Get the left margin value of character from border 
+              function touch_2( char, char1 ){
+                var char_x_left = char.offsetLeft;
+                var char_x_right = char_x_left + 150;
+
+                // Get the left margin value of character from border 
+                var char_y_top = char.offsetTop;
+                var char_y_bottom = char_y_top + 150;
+
+                var char1_x_left = char1.offsetLeft;
+                var char1_x_right = char1_x_left + 70;
+                var char1_y_top = char1.offsetTop;
+                var char1_y_bottom = char1_y_top + 70;
+            
+                if((char_x_right >= char1_x_left ) &&
+                (char_x_left <= char1_x_right )&&
+                (char_y_bottom >= char1_y_top)&&
+                (char_y_top <= char1_y_bottom) &&
+                (char_y_top >= 70)){
+                  touch_sound.currentTime = 0;
+                  touch_sound.play();
+                  char1.style.display = "none";
+                
+                  // increase score
+                  score++;
+                  score_div.innerHTML = score;
+                  setInterval(() => {
+                    char1.style.display = "block";
+                  }, 10000);
+                }
+              }
+              touch_2(charr, heart1)
+              touch_2(charr, heart2)
+              touch_2(charr, heart3)
+              touch_2(charr, heart4)
+              touch_2(charr, heart5)
+              touch_2(charr, heart6)
+            }
+            
+
+          setInterval(touch,100);
+        
+
+        
+    </script>
+  </body>
+
+
+</html>
